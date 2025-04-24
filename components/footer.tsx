@@ -9,9 +9,8 @@ export default function Footer() {
       <div className="container px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image src="/images/logo.png" alt="Gbawe Basketball Foundation" width={60} height={60} />
-              <span className="font-serif font-bold text-lg">GBF</span>
+            <Link href="/" className="flex items-center">
+              <Image src="/images/logo.png" alt="Gbawe Basketball Foundation" width={80} height={80} />
             </Link>
             <p className="text-gray-400">
               Empowering the next generation through basketball, education, and cultural pride.
