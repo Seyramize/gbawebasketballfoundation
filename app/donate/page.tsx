@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -10,18 +10,110 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, Loader2 } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export default function DonatePage() {
+  const router = useRouter()
   const [amount, setAmount] = useState<string>("50")
   const [customAmount, setCustomAmount] = useState<string>("")
+  const [firstName, setFirstName] = useState<string>("")
+  const [lastName, setLastName] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [message, setMessage] = useState<string>("")
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real application, this would process the payment
-    setSubmitted(true)
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      // Calculate the actual amount in the smallest currency unit (kobo/cents)
+      const donationAmount =
+        amount === "custom" ? Number.parseFloat(customAmount) * 100 : Number.parseFloat(amount) * 100
+
+      // Generate a reference
+      const reference = `donate_${Date.now()}_${Math.floor(Math.random() * 1000000)}`
+
+      // Initialize Paystack transaction
+      const response = await fetch("/api/paystack/initialize", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          amount: donationAmount,
+          reference,
+          metadata: {
+            name: `${firstName} ${lastName}`,
+            message,
+            type: "donation",
+          },
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success && data.data.authorization_url) {
+        // Redirect to Paystack payment page
+        window.location.href = data.data.authorization_url
+      } else {
+        setError(data.message || "Failed to initialize payment")
+        setIsLoading(false)
+      }
+    } catch (err) {
+      console.error("Payment error:", err)
+      setError("An error occurred while processing your donation. Please try again.")
+      setIsLoading(false)
+    }
   }
+
+  // Check if this is a return from Paystack with successful payment
+  React.useEffect(() => {
+    const query = new URLSearchParams(window.location.search)
+    const reference = query.get("reference")
+    const status = query.get("status")
+
+    if (reference && status === "success") {
+      // Verify the payment
+      const verifyPayment = async () => {
+        setIsLoading(true)
+        try {
+          const response = await fetch("/api/payment", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              reference,
+              email,
+              name: `${firstName} ${lastName}`,
+              amount: amount === "custom" ? Number.parseFloat(customAmount) * 100 : Number.parseFloat(amount) * 100,
+              paymentType: "donation",
+            }),
+          })
+
+          const data = await response.json()
+          if (data.success) {
+            setSubmitted(true)
+          } else {
+            setError(data.message || "Payment verification failed")
+          }
+        } catch (err) {
+          console.error("Verification error:", err)
+          setError("An error occurred while verifying your payment")
+        } finally {
+          setIsLoading(false)
+        }
+      }
+
+      verifyPayment()
+    }
+  }, [amount, customAmount, email, firstName, lastName])
 
   if (submitted) {
     return (
@@ -76,6 +168,7 @@ export default function DonatePage() {
               <CardDescription>Choose an amount and provide your information</CardDescription>
             </CardHeader>
             <CardContent>
+              {error && <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-md">{error}</div>}
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="space-y-4">
                   <Label>Select Donation Amount</Label>
@@ -156,43 +249,44 @@ export default function DonatePage() {
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="first-name">First Name</Label>
-                      <Input id="first-name" required />
+                      <Input
+                        id="first-name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="last-name">Last Name</Label>
-                      <Input id="last-name" required />
+                      <Input id="last-name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" required />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="card-number">Card Number</Label>
-                    <Input id="card-number" placeholder="1234 5678 9012 3456" required />
-                  </div>
-
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="expiry">Expiry Date</Label>
-                      <Input id="expiry" placeholder="MM/YY" required />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="cvc">CVC</Label>
-                      <Input id="cvc" placeholder="123" required />
-                    </div>
+                    <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="message">Message (Optional)</Label>
-                    <Textarea id="message" placeholder="Share why you're supporting our mission" />
+                    <Textarea
+                      id="message"
+                      placeholder="Share why you're supporting our mission"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full btn-gradient">
-                  Complete Donation
+                <Button type="submit" className="w-full btn-gradient" disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    "Complete Donation"
+                  )}
                 </Button>
               </form>
             </CardContent>

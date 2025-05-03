@@ -11,10 +11,10 @@ import { usePathname } from "next/navigation"
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs" },
+  { name: "Impact & Projects", href: "/impact" },
   { name: "Support Us", href: "/support" },
   { name: "Media & Impact", href: "/media" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact & Partners", href: "/contact-partners" },
 ]
 
 export default function Header() {

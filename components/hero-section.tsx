@@ -19,13 +19,7 @@ export default function HeroSection() {
     <section className="relative bg-black text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60 z-10" />
-        <Image
-          src="/placeholder.svg?height=800&width=1920"
-          alt="Basketball court"
-          fill
-          className="object-cover"
-          priority
-        />
+        <Image src="/placeholder.svg?key=ugf3c" alt="Basketball court" fill className="object-cover" priority />
       </div>
 
       <div className="relative z-20 pt-24 pb-20 md:pt-32 md:pb-32 container px-4 md:px-6">
@@ -45,7 +39,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Changing lives through basketball, education, and cultural pride - one dream at a time.
+            Changing lives through basketball, education, and cultural pride — one dream at a time.
           </motion.p>
 
           <motion.div

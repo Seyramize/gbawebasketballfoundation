@@ -11,11 +11,12 @@ export default function MediaPage() {
       <div className="max-w-5xl mx-auto space-y-12">
         <div className="space-y-4 text-center">
           <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
-            When Dreams Come True - Our Impact in Action
+            When Dreams Come True – Our Impact in Action
           </h1>
           <p className="text-xl text-gray-700 max-w-[700px] mx-auto">
             The Media & Stories page is where we showcase the real-world impact of your support. Every image, video, and
-            testimony is proof that when we give young people a dream, they chase it with everything.
+            testimony is proof that when we give young people a dream, they chase it with everything. And when they
+            chase it — they change the world around them.
           </p>
         </div>
 
@@ -33,7 +34,7 @@ export default function MediaPage() {
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} className="aspect-square relative overflow-hidden rounded-lg">
                   <Image
-                    src={`/placeholder.svg?height=400&width=400`}
+                    src={`/placeholder.svg?key=m1c1z&height=400&width=400&query=basketball youth in Ghana ${i + 1}`}
                     alt={`Impact photo ${i + 1}`}
                     fill
                     className="object-cover"
@@ -69,7 +70,7 @@ export default function MediaPage() {
                   <div className="grid grid-cols-2 gap-2">
                     <div className="aspect-square relative overflow-hidden rounded-lg">
                       <Image
-                        src={`/placeholder.svg?height=300&width=300`}
+                        src={`/placeholder.svg?key=d6885&height=300&width=300&query=before basketball training Ghana ${i + 1}`}
                         alt={`Before image ${i + 1}`}
                         fill
                         className="object-cover"
@@ -78,7 +79,7 @@ export default function MediaPage() {
                     </div>
                     <div className="aspect-square relative overflow-hidden rounded-lg">
                       <Image
-                        src={`/placeholder.svg?height=300&width=300`}
+                        src={`/placeholder.svg?key=toyzm&height=300&width=300&query=after basketball training Ghana ${i + 1}`}
                         alt={`After image ${i + 1}`}
                         fill
                         className="object-cover"
@@ -114,7 +115,7 @@ export default function MediaPage() {
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} className="aspect-square relative overflow-hidden rounded-lg">
                   <Image
-                    src={`/placeholder.svg?height=300&width=300`}
+                    src={`/placeholder.svg?height=300&width=300&query=behind the scenes basketball foundation Ghana ${i + 1}`}
                     alt={`Behind the scenes photo ${i + 1}`}
                     fill
                     className="object-cover"
@@ -127,7 +128,7 @@ export default function MediaPage() {
         </Tabs>
 
         <div className="text-center space-y-6">
-          <p className="text-2xl font-medium">Your support is more than charity - it's a legacy.</p>
+          <p className="text-2xl font-medium">Your support is more than charity — it's a legacy.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button asChild size="lg">
               <Link href="/gallery">Explore the Gallery</Link>

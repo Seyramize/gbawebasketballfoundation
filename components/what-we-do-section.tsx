@@ -102,7 +102,7 @@ export default function WhatWeDoSection() {
                 <Video className="h-6 w-6 text-red-600" />
               </div>
               <CardTitle className="font-serif">Cultural Empowerment</CardTitle>
-              <CardDescription>Sharing the story of Gbawe and African excellence</CardDescription>
+              <CardDescription>Sharing the story of Gbawe, the hunter's spirit, and African excellence</CardDescription>
             </CardHeader>
             <CardContent className="text-sm text-gray-700">
               Celebrating heritage and identity, inspiring youth to take pride in their roots while building their

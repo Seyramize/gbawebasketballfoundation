@@ -33,12 +33,12 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter font-serif">
-                The Gbawe Basketball Foundation empowers the next generation to dream boldly - and gives them the tools
+                The Gbawe Basketball Foundation empowers the next generation to dream boldly — and gives them the tools
                 to make those dreams real.
               </h2>
               <p className="mx-auto text-gray-700 md:text-xl leading-relaxed">
-                From training camps and school outreach to scholarships and community events, we use the power of
-                basketball to unlock confidence, creativity, and purpose in the youth of Ghana and beyond.
+                From training camps and school outreach to scholarships and community events, we use the spirit of
+                basketball to awaken confidence, creativity, and unstoppable purpose in the youth of Ghana and beyond.
               </p>
             </motion.div>
 
@@ -91,12 +91,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <Image
-                  src="/placeholder.svg?height=600&width=800"
-                  alt="Basketball training"
-                  fill
-                  className="object-cover"
-                />
+                <Image src="/placeholder.svg?key=zujiy" alt="Basketball training" fill className="object-cover" />
               </motion.div>
             </div>
 
@@ -117,7 +112,7 @@ export default function Home() {
                   <Link href="/support">Donate Now</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link href="/contact">Become a Partner</Link>
+                  <Link href="/contact-partners">Become a Partner</Link>
                 </Button>
               </div>
             </motion.div>

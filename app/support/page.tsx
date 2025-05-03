@@ -147,6 +147,10 @@ export default function SupportPage() {
                   <li>Camp Volunteers</li>
                   <li>Media & Content Helpers</li>
                 </ul>
+                <p className="text-gray-700 mt-4">
+                  When you give your time, you become part of a dream bigger than any one player, one coach, or one
+                  court.
+                </p>
               </CardContent>
               <CardFooter>
                 <Button asChild variant="outline" className="w-full">

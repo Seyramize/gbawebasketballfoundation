@@ -44,8 +44,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="text-gray-400 hover:text-white transition-colors">
-                  Programs
+                <Link href="/impact" className="text-gray-400 hover:text-white transition-colors">
+                  Impact & Projects
                 </Link>
               </li>
               <li>
@@ -59,8 +59,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
+                <Link href="/contact-partners" className="text-gray-400 hover:text-white transition-colors">
+                  Contact & Partners
                 </Link>
               </li>
             </ul>
@@ -70,22 +70,22 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 font-serif">Programs</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/programs#scholarships" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/impact#school-dreams" className="text-gray-400 hover:text-white transition-colors">
                   Scholarships
                 </Link>
               </li>
               <li>
-                <Link href="/programs#community" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/impact#court-community" className="text-gray-400 hover:text-white transition-colors">
                   Community Outreach
                 </Link>
               </li>
               <li>
-                <Link href="/programs#leadership" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/impact#leadership" className="text-gray-400 hover:text-white transition-colors">
                   Leadership Fellowship
                 </Link>
               </li>
               <li>
-                <Link href="/programs#culture" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/impact#culture" className="text-gray-400 hover:text-white transition-colors">
                   Kingdom of Us
                 </Link>
               </li>
@@ -117,10 +117,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Gbawe Basketball Foundation. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
+            <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors text-sm">
               Terms of Service
             </Link>
           </div>
