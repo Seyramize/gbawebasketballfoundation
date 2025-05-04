@@ -43,20 +43,31 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-4 justify-center pt-4"
+            className="space-y-4 pt-4 w-full max-w-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button asChild size="lg" className="btn-gradient">
+            <Button asChild size="lg" className="w-full btn-gradient">
               <Link href="/support">Support a Dream</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-              <Link href="/media">See Our Impact</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-              <Link href="/contact">Partner With Us</Link>
-            </Button>
+
+            <div className="grid grid-cols-2 gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white border-none transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1"
+              >
+                <Link href="/media">See Our Impact</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-orange-600 hover:bg-orange-700 text-white border-2 border-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-orange-600/30 hover:-translate-y-1 hover:border-opacity-80"
+              >
+                <Link href="/contact">Partner With Us</Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>

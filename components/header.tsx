@@ -88,18 +88,24 @@ export default function Header() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="outline" size="icon" className="border-none text-white hover:bg-gray-800/50">
+            <Button
+              size="icon"
+              className="bg-gradient-to-r from-blue-600/80 to-orange-600/80 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 border-none"
+            >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-gradient-to-b from-gray-900 to-gray-800 text-white border-gray-700">
+          <SheetContent
+            side="right"
+            className="bg-gradient-to-b from-gray-900 to-gray-800 text-white border-gray-700 border-l-blue-600/50 shadow-xl"
+          >
             <nav className="flex flex-col gap-4 mt-8">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-lg font-medium transition-colors relative group
+                  className={`text-lg font-medium transition-all duration-300 relative group
                     ${pathname === item.href ? "text-white font-semibold" : "text-gray-300 hover:text-white"}
                   `}
                   onClick={() => setOpen(false)}
@@ -112,7 +118,7 @@ export default function Header() {
                   />
                 </Link>
               ))}
-              <Button asChild className="mt-6 btn-gradient text-white">
+              <Button asChild className="mt-6 btn-gradient text-white hover:scale-105">
                 <Link href="/support" onClick={() => setOpen(false)}>
                   Donate
                 </Link>

@@ -76,10 +76,13 @@ export default function Home() {
                     <p className="text-gray-700">Scholarship Athletes</p>
                   </div>
                 </div>
-                <Button asChild className="mt-4 group">
+                <Button
+                  asChild
+                  className="mt-4 group bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1"
+                >
                   <Link href="/media" className="flex items-center gap-2">
                     See Our Impact
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
                   </Link>
                 </Button>
               </motion.div>
@@ -111,7 +114,11 @@ export default function Home() {
                 <Button asChild size="lg" className="btn-gradient">
                   <Link href="/support">Donate Now</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-orange-600 hover:bg-orange-700 text-white border-2 border-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-orange-600/30 hover:-translate-y-1 hover:border-opacity-80"
+                >
                   <Link href="/contact-partners">Become a Partner</Link>
                 </Button>
               </div>
