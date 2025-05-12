@@ -31,13 +31,20 @@ export default function MediaPage() {
 
           <TabsContent value="photos" className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {Array.from({ length: 6 }).map((_, i) => (
+              {[
+                { src: "/donation1.jpg", alt: "Impact photo 1" },
+                { src: "/donation2.jpg", alt: "Impact photo 2" },
+                { src: "/donation3.jpg", alt: "Impact photo 3" },
+                { src: "/donation1.jpg", alt: "Impact photo 4" },
+                { src: "/donation2.jpg", alt: "Impact photo 5" },
+                { src: "/donation3.jpg", alt: "Impact photo 6" },
+              ].map((photo, i) => (
                 <div key={i} className="aspect-square relative overflow-hidden rounded-lg">
                   <Image
-                    src={`/placeholder.svg?key=m1c1z&height=400&width=400&query=basketball youth in Ghana ${i + 1}`}
-                    alt={`Impact photo ${i + 1}`}
+                    src={photo.src} // Use your image paths here
+                    alt={photo.alt}
                     fill
-                    className="object-cover"
+                    className="object-contain" // Change from object-cover to object-contain
                   />
                 </div>
               ))}

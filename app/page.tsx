@@ -94,7 +94,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <Image src="/placeholder.svg?key=zujiy" alt="Basketball training" fill className="object-cover" />
+                <Image src="/donation3.jpg" alt="Basketball training" fill className="object-cover" />
               </motion.div>
             </div>
 
