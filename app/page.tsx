@@ -133,7 +133,7 @@ export default function Home() {
                 size="lg"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-400 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-1"
               >
-                <Link href="https://gbawebasketballacademy.vercel.app/"> Become A Hunter</Link>
+                <Link href="https://gbawebasketballacademy.vercel.app/" target="_blank" rel="noopener noreferrer"> Become A Hunter</Link>
               </Button>
             </motion.div>
             </motion.div>
