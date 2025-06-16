@@ -79,7 +79,7 @@ export default function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="w-full bg-green-600 hover:bg-green-700 text-white border-2 border-green-400 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-green-600/30 hover:-translate-y-1"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-400 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-1"
               >
                 <Link href="/training-registration">🏀 Join Free Training Session</Link>
               </Button>
