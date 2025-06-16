@@ -122,6 +122,20 @@ export default function Home() {
                   <Link href="/contact-partners">Become a Partner</Link>
                 </Button>
               </div>
+              <motion.div
+              className="pt-4 border-t border-gray-600"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <Button
+                asChild
+                size="lg"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-400 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-1"
+              >
+                <Link href="https://gbawebasketballacademy.vercel.app/"> Become A Hunter</Link>
+              </Button>
+            </motion.div>
             </motion.div>
           </div>
         </div>

@@ -1,9 +1,11 @@
 "use client"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { BookOpen, Users, Award, Video } from "lucide-react"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 
 export default function WhatWeDoSection() {
   const [mounted, setMounted] = useState(false)
@@ -88,9 +90,14 @@ export default function WhatWeDoSection() {
               <CardTitle className="font-serif">Training Camps & Clinics</CardTitle>
               <CardDescription>Free and sponsored events across regions</CardDescription>
             </CardHeader>
-            <CardContent className="text-sm text-gray-700">
-              Professional training opportunities that develop basketball skills while instilling discipline and
-              teamwork.
+            <CardContent className="text-sm text-gray-700 space-y-3">
+              <p>
+                Professional training opportunities that develop basketball skills while instilling discipline and
+                teamwork.
+              </p>
+              <Button asChild size="sm" className="w-full bg-yellow-600 hover:bg-yellow-700 text-white">
+                <Link href="/training-registration">Register for Free Training</Link>
+              </Button>
             </CardContent>
           </Card>
         </motion.div>

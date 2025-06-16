@@ -19,7 +19,7 @@ export default function HeroSection() {
     <section className="relative bg-black text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60 z-10" />
-        <Image src="/donation1.jpg" alt="Basketball court" fill className="object-cover" priority />
+        <Image src="/placeholder.svg?key=ugf3c" alt="Basketball court" fill className="object-cover" priority />
       </div>
 
       <div className="relative z-20 pt-24 pb-20 md:pt-32 md:pb-32 container px-4 md:px-6">
@@ -68,6 +68,23 @@ export default function HeroSection() {
                 <Link href="/contact">Partner With Us</Link>
               </Button>
             </div>
+
+            {/* Free Training Registration CTA */}
+            <motion.div
+              className="pt-4 border-t border-gray-600"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <Button
+                asChild
+                size="lg"
+                className="w-full bg-green-600 hover:bg-green-700 text-white border-2 border-green-400 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-green-600/30 hover:-translate-y-1"
+              >
+                <Link href="/training-registration">🏀 Join Free Training Session</Link>
+              </Button>
+              <p className="text-xs text-gray-300 mt-2">Register now • All skill levels welcome</p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
